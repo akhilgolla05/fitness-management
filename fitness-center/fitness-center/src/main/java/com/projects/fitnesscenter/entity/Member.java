@@ -38,9 +38,6 @@ public class Member {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Column(name = "photo")
-    @Lob
-    private Blob photo;
 
     @Column(name = "joining_date")
     private LocalDate joiningDate;
@@ -54,5 +51,18 @@ public class Member {
            CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name = "trainer")
     private Trainer trainer;
+
+    public Member(int membershipId, String firstName, String lastName, String email) {
+        this.membershipId = membershipId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+
+    //    public void addTrainer(Trainer theTrainer){
+//        this.trainer = theTrainer;
+//
+//    }
 
 }

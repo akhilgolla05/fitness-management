@@ -1,9 +1,11 @@
 package com.projects.fitnesscenter.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -28,19 +30,24 @@ public class Trainer {
     @Column(name = "email")
     private String email;
 
-    @Lob
-    @Column(name = "photo")
-    private Blob photo;
-
     @Column(name = "specialization")
     private String specialization;
 
     @Column(name = "experience")
     private String experience;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "trainer",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 
     private List<Member> members;
 
+
+    public void addMember(Member member){
+        if(members == null){
+            members = new ArrayList<>();
+        }
+        members.add(member);
+        member.setTrainer(this);
+    }
 
 }

@@ -20,4 +20,15 @@ public class handleAllExceptions {
 
     }
 
+    @ExceptionHandler
+    public ResponseEntity<ErrorMessage> handleMemberNotFoundException(MemberNotFoundException ex){
+
+        ErrorMessage message = new ErrorMessage();
+        message.setStatusCode(HttpStatus.NOT_FOUND.value());
+        message.setMessage(ex.getMessage());
+        message.setTimeStamp(System.currentTimeMillis());
+        return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+
+    }
+
 }
