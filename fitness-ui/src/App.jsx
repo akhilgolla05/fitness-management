@@ -1,14 +1,25 @@
-import { useState } from 'react'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import NavBar from "./components/commons/NavBar"
+import TrainersList from "./components/trainer/TrainersList"
+import AddTrainer from "./components/trainer/AddTrainer"
+import UpdateTrainer from "./components/trainer/UpdateTrainer"
 
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
-      <h1>React started....</h1>
-    </>
+    <BrowserRouter>
+      <NavBar/>
+    <Routes>
+      <Route path="/" element={<TrainersList/>}/>
+      <Route path="/add-trainer" element={<AddTrainer/>}/>
+      <Route path="/update-trainer/:trainerId" element={<UpdateTrainer/>}/>
+      <Route/>
+    </Routes>
+      
+      
+    </BrowserRouter>
   )
 }
 
