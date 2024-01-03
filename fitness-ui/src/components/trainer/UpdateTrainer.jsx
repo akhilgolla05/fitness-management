@@ -22,7 +22,7 @@ const UpdateTrainer = () => {
         
         getTrainerById(trainerId)
         .then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             setTrainer(response.data)
         }).catch((error)=>{console.log(error)})
         
@@ -33,7 +33,7 @@ const UpdateTrainer = () => {
         
         const value = event.target.value
         setTrainer({...trainer, [event.target.name] : value})
-        console.log(trainer)
+        // console.log(trainer)
     }
 
     const handleClear = ()=>{

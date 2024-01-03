@@ -25,4 +25,11 @@ export const getTrainerById = (trainerId)=>
 export const updateTrainerById = (trainerId, trainer)=>
     api.put(`/trainers/trainer/update/${trainerId}`, trainer)
 
+export const getAllMemebers = ()=>
+    api.get("/members/all-members")
 
+export const deleteMemberById = (membershipId)=>
+    api.delete(`/members/member/delete/${membershipId}`)
+
+export const addMember = (member,trainerId)=>
+    api.post(`/members/${trainerId}/add`, member)

@@ -16,7 +16,7 @@ const AddTrainer = () => {
         
         const value = event.target.value
         setTrainer({...trainer, [event.target.name] : value})
-        console.log(trainer)
+        // console.log(trainer)
     }
 
     const navigate = useNavigate()
@@ -24,7 +24,7 @@ const AddTrainer = () => {
     const handleSaveTrainer = async ()=>{
         addTrainer(trainer)
         .then((response)=>{
-            console.log(response)
+            // console.log(response)
             navigate("/")})
         .catch((error)=>{
             console.log(error)

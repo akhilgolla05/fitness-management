@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const TrainersList = () => {
 
-    const [trainersData, setTrainersData] = useState([])
+    const [trainersData, setTrainersData] = useState(null)
 
     useEffect(()=>{getTrainers()},[])
 
@@ -21,7 +21,7 @@ const TrainersList = () => {
 
         getAllTrainers()
         .then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             setTrainersData(response.data)
         }).catch((error)=>{
             console.log(error)
