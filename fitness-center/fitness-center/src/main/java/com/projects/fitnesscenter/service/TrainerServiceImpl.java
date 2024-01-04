@@ -1,6 +1,7 @@
 package com.projects.fitnesscenter.service;
 
 
+import com.projects.fitnesscenter.entity.Member;
 import com.projects.fitnesscenter.entity.Trainer;
 import com.projects.fitnesscenter.exception.TrainerNotFoundException;
 import com.projects.fitnesscenter.repository.TrainerRepository;
@@ -46,6 +47,13 @@ public class TrainerServiceImpl implements TrainerService{
         Optional<Trainer> trainer = trainerRepository.findById((long) trainerId);
         if(trainer.isEmpty()){
             throw new TrainerNotFoundException("Trainer With id : "+trainerId+" Not Found!");
+        }
+        var theTrainer = trainer.get();
+        if(!theTrainer.getMembers().isEmpty()){
+            List<Member> members = theTrainer.getMembers();
+            for(Member member : members){
+                member.setTrainer(null);
+            }
         }
         trainerRepository.delete(trainer.get());
 

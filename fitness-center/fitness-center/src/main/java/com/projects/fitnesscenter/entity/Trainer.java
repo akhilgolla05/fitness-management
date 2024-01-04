@@ -37,7 +37,10 @@ public class Trainer {
     private String experience;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "trainer",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "trainer",fetch = FetchType.LAZY, cascade = {
+            CascadeType.DETACH,CascadeType.MERGE,
+            CascadeType.PERSIST,CascadeType.REFRESH
+    })
 
     private List<Member> members;
 
