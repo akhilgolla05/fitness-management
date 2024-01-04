@@ -26,16 +26,19 @@ const AddMember = () => {
     const [trainerId, setTrainerId] = useState()
 
     const handleTrainerId = (event)=>{
-        console.log("TrainerId : ")
-        console.log(event.target.value)
+        // console.log("TrainerId : ")
+        // console.log(event.target.value)
         setTrainerId(event.target.value)
 
     }
 
-    const handleSaveMember = async ()=>{
+    const handleSaveMember = async (e)=>{
+        // console.log(member)
+        // console.log(trainerId)
+        e.preventDefault()
         addMember(member, trainerId)
         .then((response)=>{
-            console.log(response.data)
+            // console.log(response.data)
             navigate("/members-list")
         })
         .catch((error)=>{
@@ -68,9 +71,9 @@ const AddMember = () => {
 
         try{
             const response = await getAllTrainers()
-            console.log(response.data)
+            // console.log(response.data)
             setTrainers(response.data)
-            console.log(response.data)
+            // console.log(response.data)
 
         }catch(error){
             console.log(error)
@@ -172,9 +175,9 @@ const AddMember = () => {
         className="block border px-2 mx-2 py-1"/>
         </div>
 
-        <div>
-        <label htmlFor='trainer'>Select a Trainer:</label>
-        <select name="trainerId" id="trainer" onChange={handleTrainerId}>
+        <div className='w-full font-serif'>
+        <label htmlFor='trainer' className=" block px-2 my-2 font-normal text-lg" >Select a Trainer:</label>
+        <select className="block border px-2 mx-2 py-1" name="trainerId" id="trainer" onChange={handleTrainerId}>
         {
             trainers.map((trainer)=>(
                 <option key={trainer.trainerId} value={trainer.trainerId}>{trainer.firstName} - {trainer.specialization}</option>
@@ -182,17 +185,7 @@ const AddMember = () => {
         }
         </select>
         
-        {/* <select name="trainer" id="trainer">
-            
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
-        </select> */}
-
-
         </div>
-
-
 
         <div className='my-4 space-x-3'>
             <button onClick={handleClear} className='px-2 py-2 text-lg font-medium border rounded-md bg-red-300 hover:bg-red-500'>Clear</button>

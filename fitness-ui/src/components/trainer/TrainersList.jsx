@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const TrainersList = () => {
 
-    const [trainersData, setTrainersData] = useState(null)
+    const [trainersData, setTrainersData] = useState([])
 
     useEffect(()=>{getTrainers()},[])
 

@@ -37,7 +37,8 @@ const handleDelete = (membershipId)=>{
 }
 
 const handleUpdate = (membershipId)=>{
-    navigate(`/update-trainer/${membershipId}`)
+    // console.log(`membershipId : ${membershipId}`)
+    navigate(`/update-member/${membershipId}`)
 }
 
   return (
@@ -65,7 +66,7 @@ const handleUpdate = (membershipId)=>{
         {
             membersData.map((data)=>(
 
-                <tr key={data.trainerId} className='hover:bg-slate-100'>
+                <tr key={data.membershipId} className='hover:bg-slate-100'>
                     <td className='text-left px-2 py-2 font-normal'>{data.firstName}</td>
                     <td className='text-left px-2 py-2 font-normal'>{data.lastName}</td>
                     <td className='text-left px-2 py-2 font-normal'>{data.email}</td>

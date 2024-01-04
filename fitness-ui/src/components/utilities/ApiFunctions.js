@@ -32,4 +32,11 @@ export const deleteMemberById = (membershipId)=>
     api.delete(`/members/member/delete/${membershipId}`)
 
 export const addMember = (member,trainerId)=>
-    api.post(`/members/${trainerId}/add`, member)
+    api.post(`/members/member/${trainerId}/add`, member)
+
+export const getMemberById = (membershipId)=>
+    api.get(`/members/member/${membershipId}`)
+
+export const updateMemberById = (membershipId, member)=>
+    api.put(`/members/member/update/${membershipId}`, member)
+

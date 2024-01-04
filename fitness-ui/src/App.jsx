@@ -6,6 +6,7 @@ import UpdateTrainer from "./components/trainer/UpdateTrainer"
 import Home from "./components/commons/Home"
 import MembersList from "./components/member/MembersList"
 import AddMember from "./components/member/AddMember"
+import UpdateMember from "./components/member/UpdateMember"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
 
       <Route path="/members-list" element={<MembersList/>}/>
       <Route path="/add-member" element={<AddMember/>}/>
+      <Route path="/update-member/:membershipId" element={<UpdateMember/>}/>
       <Route/>
     </Routes>
       

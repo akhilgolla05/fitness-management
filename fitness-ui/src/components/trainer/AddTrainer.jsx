@@ -25,7 +25,7 @@ const AddTrainer = () => {
         addTrainer(trainer)
         .then((response)=>{
             // console.log(response)
-            navigate("/")})
+            navigate("/trainers-list")})
         .catch((error)=>{
             console.log(error)
         })
